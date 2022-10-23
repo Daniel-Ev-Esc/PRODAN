@@ -9,8 +9,8 @@
 
     <WebView
         android:id="@+id/forms"
-        android:layout_width="358dp"
-        android:layout_height="613dp"
+        android:layout_width="359dp"
+        android:layout_height="643dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

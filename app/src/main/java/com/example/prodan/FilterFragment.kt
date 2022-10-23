@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import com.example.prodan.data.petList
 import androidx.navigation.Navigation
 import com.example.prodan.databinding.FragmentFilterBinding
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import com.example.prodan.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,6 +30,9 @@ class FilterFragment : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentFilterBinding? = null
     private val binding get() = _binding!!
+    var raza = arrayOf<String?>("Bulldog", "Golden Retriever",
+        "German Shepard", "Puppy",
+        "Chichuahua")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,16 +55,10 @@ class FilterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Se guardarán los valores a filtrar en un bundle (Para mas filtros se deben agregar más variables)
-        var listaRazas = ArrayList<String>()
         val bundle = Bundle()
         var especie = ""
-        var raza = ""
         var sexo = 0
         binding.ninguno.isChecked = true
-
-        for (item in petList){
-            if (!listaRazas.contains(item.raza)) listaRazas.add(item.raza)
-        }
 
         // Los filtros se aplican cuando se presiona el boton aplicar
         binding.aplicar.setOnClickListener {
@@ -66,23 +66,20 @@ class FilterFragment : Fragment() {
 
             // Ya funciona
             // Radio group de la especie
-            if(id == binding.perro.id) especie = "Perro"
-            else if (id == binding.gato.id) especie = "Gato"
-            else if (id == binding.otro.id) especie = "Otro"
+            if(id == binding.perro.id) especie = "perro"
+            else if (id == binding.gato.id) especie = "gato"
+            else if (id == binding.otro.id) especie = "otro"
             else especie = ""
 
-            // Ya funciona
-            if (binding.switch3.isChecked) sexo = 2131165272
-            else if (binding.switch2.isChecked) sexo = 2131165288
+            // No funciona
+            // Estamos guardando los id de las imágenes y no me los se
+            if (binding.switch3.isChecked) sexo = 1
+            else if (binding.switch2.isChecked) sexo = 2
             else sexo = 0
-
-            // Pendiente (Raza)
-            // Necesito saber que razas hay para poder ponerlas en la lista, hay que ver como sacarlas de la lista
 
             // Se guardan todos los filtros en el bundle
             bundle.putString("especie",especie)
             bundle.putInt("sexo",sexo)
-            bundle.putString("raza",raza)
 
             // Se navega a la pantalla pricipal con el bundle
             Navigation.findNavController(view).navigate(R.id.action_filterFragment2_to_homeFragment,bundle)
@@ -116,8 +113,13 @@ class FilterFragment : Fragment() {
             }
         }
 
+        binding.buttonBack2.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_filterFragment2_to_homeFragment)
+        }
+
 
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

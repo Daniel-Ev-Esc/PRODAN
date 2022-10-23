@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
-import com.example.prodan.data.pets
+import com.example.prodan.data.Attributes
+import com.example.prodan.data.Data
+import com.example.prodan.data.Pet
 import com.example.prodan.databinding.FragmentDetailsBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -50,21 +52,27 @@ class DetailsFragment : Fragment() {
 
 
         arguments?.let {
-            val pets  = it.get("pets") as pets
+            val pets  = it.get("pets") as Attributes
 
-            binding.textViewNombrePlaceholder.text = pets.nombre
-            binding.textViewId.text = pets.id
-            binding.textViewEdad.text = pets.edad
-            binding.textViewDescripcion.text = pets.descripcion
-            binding.imageViewSexo.setImageResource(pets.sexo)
+            binding.textViewNombrePlaceholder.text = pets.name
+            binding.textViewEdad.text = pets.age
+            binding.textViewDescripcion.text = pets.description
+            if(pets.male)
+                binding.imageViewSexo.setImageResource(R.drawable.boy)
+            else
+                binding.imageViewSexo.setImageResource(R.drawable.girl)
 
             Glide.with(this)
-                .load(pets.imagen)
+                .load(pets.url)
                 .into(binding.imageViewPhoto2)
         }
 
         binding.button.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_detailsFragment_to_webFragment)
+        }
+
+        binding.buttonBack3.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_detailsFragment_to_homeFragment)
         }
 
     }

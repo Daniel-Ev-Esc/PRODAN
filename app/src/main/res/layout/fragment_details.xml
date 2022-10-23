@@ -7,76 +7,51 @@
     tools:context=".DetailsFragment">
 
     <ImageView
-        android:id="@+id/imageView_photo2"
-        android:layout_width="243dp"
-        android:layout_height="166dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="10dp"
+        android:id="@+id/imageView3"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <Button
+        android:id="@+id/button_back3"
+        style="@android:style/Widget.Material.Button.Borderless"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_photo2"
+        android:layout_width="251dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/textView_nombre_placeholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="16dp"
         android:text="nombre"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_descripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_sexo" />
-
-    <TextView
-        android:id="@+id/textView_edad_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Edad:"
-        app:layout_constraintStart_toStartOf="@+id/imageView_photo2"
-        app:layout_constraintTop_toBottomOf="@+id/textView_nombre_placeholder" />
-
-    <TextView
-        android:id="@+id/textView_sexo_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:text="Sexo:"
-        app:layout_constraintStart_toStartOf="@+id/textView_edad_title"
-        app:layout_constraintTop_toBottomOf="@+id/textView_edad_title" />
-
-    <TextView
-        android:id="@+id/textView_edad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:text="edad"
-        app:layout_constraintStart_toStartOf="@+id/textView_edad_title"
-        app:layout_constraintTop_toBottomOf="@+id/textView_nombre_placeholder" />
-
-    <TextView
-        android:id="@+id/textView_id"
-        android:layout_width="64dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="8dp"
-        android:text="Descripcion"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_photo2" />
 
@@ -84,20 +59,65 @@
         android:id="@+id/imageView_sexo"
         android:layout_width="34dp"
         android:layout_height="35dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_edad" />
+
+    <TextView
+        android:id="@+id/textView_sexo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sexo:"
+        app:layout_constraintStart_toStartOf="@+id/imageView_photo2"
+        app:layout_constraintTop_toBottomOf="@+id/textView_edad_title" />
+
+    <TextView
+        android:id="@+id/textView_descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_photo2"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="@+id/imageView_photo2"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombre_placeholder" />
+
+    <TextView
+        android:id="@+id/textView_edad_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Edad:"
+        app:layout_constraintEnd_toStartOf="@+id/textView_nombre_placeholder"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView_photo2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_photo2" />
+
+    <TextView
+        android:id="@+id/textView_edad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="edad"
+        app:layout_constraintStart_toStartOf="@+id/textView_edad_title"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombre_placeholder" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="76dp"
         android:text="Llenar Solicitud"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_descripcion" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

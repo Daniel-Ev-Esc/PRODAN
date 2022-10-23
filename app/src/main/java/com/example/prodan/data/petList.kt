@@ -1,15 +1,26 @@
-package com.example.prodan.data
+/*package com.example.prodan.data
 
 import com.example.prodan.R
 
 var petList = mutableListOf(
+    Pet(
+        "",
+        ""
+    ),
+            Data(
+            "",
+
+            ),
+    Attributes(
+        "",
+
+    ),
     pets(
         "123",
         "Pingo",
         "https://pngimg.com/uploads/dog/dog_PNG50318.png",
         "6 años",
         R.drawable.boy,
-        "Perro",
         "Me gusta jugar mucho en el parque y convivir con otros perros",
         "Pug"
     ),
@@ -19,7 +30,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/dog/dog_PNG50302.png",
         "3 años",
         R.drawable.girl,
-        "Lala",
         "Me asustan los ruidos fuertes",
         "Golden Retriever"
     ),
@@ -29,7 +39,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/cat/cat_PNG1621.png",
         "2 años",
         R.drawable.girl,
-        "Gato",
         "Me gusta mirarte mientras duermes",
         "Gato negro"
     ),
@@ -39,7 +48,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/cat/cat_PNG50487.png",
         "4 años",
         R.drawable.boy,
-        "Gato",
         "Me gusta la lasagna",
         "Gato naranja"
     ),
@@ -49,7 +57,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/dog/dog_PNG50368.png",
         "6 años",
         R.drawable.boy,
-        "Perro",
         "Soy algo gruñon pero no muerdo",
         "Bulldog"
     ),
@@ -59,7 +66,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/dog/dog_PNG50325.png",
         "6 años",
         R.drawable.boy,
-        "Perro",
         "También soy algo gruñon pero tampoco muerdo",
         "Bulldog"
     ),
@@ -69,7 +75,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/cat/cat_PNG50492.png",
         "1 año",
         R.drawable.girl,
-        "Gato",
         "No me gusta que agarren de mi comida",
         "Gata gris"
     ),
@@ -79,8 +84,6 @@ var petList = mutableListOf(
         "https://pngimg.com/uploads/dog/dog_PNG50362.png",
         "8 años",
         R.drawable.boy,
-        "Perro",
-
         "Soy muy fiel y te defiendo a toda madre (el que se meta contigo se muere)",
         "Pastor Alemán"
-    ))
+    ))*/

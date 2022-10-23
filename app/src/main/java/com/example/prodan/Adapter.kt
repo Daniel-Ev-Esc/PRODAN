@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.prodan.data.pets
+import com.example.prodan.data.Data
 import com.example.prodan.databinding.PetItemBinding
 
-class adapter (val context: Context, var data: List<pets>,
-               private val funcionX : (pets) ->Unit ) :
+class adapter (val context: Context, var data: List<Data>,
+               private val funcionX : (Data) ->Unit ) :
     RecyclerView.Adapter<adapter.ViewHolder>()
 {
-
     // Cambio de filtros
     // Recibe una nueva lista y notifica que cambió
-    fun filterList(filterList: List<pets>){
+    fun filterList(filterList: List<Data>){
         data = filterList
         notifyDataSetChanged()
     }
@@ -34,27 +33,24 @@ class adapter (val context: Context, var data: List<pets>,
         return ViewHolder(view) {
             funcionX(data[it])
         }
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
-            textViewAge.text = data[position].edad
-            textViewName.text = data[position].nombre
-            imageViewGender.setImageResource(data[position].sexo)
+            textViewId.text = data[position].id.toString()
+            textViewName.text = data[position].attributes.name
+            if (data[position].attributes.male)
+                imageViewGender.setImageResource(R.drawable.boy)
+            else
+                imageViewGender.setImageResource(R.drawable.girl)
         }
-        /*
-        holder.binding.textViewId.text = data[position].id
-        holder.binding.textViewNombre.text = data[position].nombre*/
-
-        Glide.with(context)
-            .load(data[position].imagen)
-            .into(holder.binding.imageViewPhoto)
+           Glide.with(context)
+               .load(data[position].attributes.image?.data?.attributes?.formats?.small?.url)
+               .into(holder.binding.imageViewPhoto)
 
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
-
 }

@@ -1,5 +1,6 @@
 package com.example.prodan
 
+import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.prodan.databinding.FragmentOptionsBinding
 
 
@@ -56,6 +58,83 @@ class OptionsFragment : Fragment() {
             openInstagram()
         }
 
+        binding.buttonTW.setOnClickListener {
+            openTW()
+        }
+
+        binding.buttonYT.setOnClickListener {
+            openYT()
+        }
+
+        binding.buttonM.setOnClickListener {
+            val mBuilder = AlertDialog.Builder(activity)
+                .setTitle("Correo Electrónico de PRODAN")
+                .setMessage("informes@prodan.org.mx")
+            val mAlertDialog = mBuilder.create()
+            mAlertDialog.show()
+        }
+
+        binding.buttonAV.setOnClickListener {
+            val mBuilder = AlertDialog.Builder(activity)
+                .setTitle("AVISO DE PRIVACIDAD")
+                .setMessage("Prodefensa Animal A.C., con domicilio en Plutarco Elías Calles 307, Tampiquito, 66240 San Pedro Garza García, N.L., es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:\n" +
+                        "\n" +
+                        "¿Para qué fines utilizaremos sus datos personales?\n\n" +
+                        "Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:\n" +
+                        "\n" +
+                        "Respuesta a mensajes del formulario de contacto\n" +
+                        "\n" +
+                        "¿Dónde puedo consultar el aviso de privacidad integral?\n\n" +
+                        "Para conocer mayor información sobre los términos y condiciones en que serán tratados sus datos personales, como los terceros con quienes compartimos su información personal y la forma en que podrá ejercer sus derechos ARCO, puede consultar el aviso de privacidad integral con una petición vía correo electrónico:\n" +
+                        "\n" +
+                        "informes@prodan.org.mx\n\n" +
+                        "Última actualización de este aviso de privacidad: 29/09/2022\n")
+                .setPositiveButton("ACEPTAR"){dialog, which ->
+
+                }
+            val mAlertDialog = mBuilder.create()
+            mAlertDialog.show()
+        }
+
+        binding.buttonBack.setOnClickListener {
+            //Navigation.findNavController(view).navigate(R.id.action_optionsFragment_to_homeFragment)
+            Navigation.findNavController(view).navigate(R.id.action_optionsFragment_to_homeFragment)
+        }
+
+    }
+
+    private fun openTW() {
+        val uri = Uri.parse("https://twitter.com/prodanmty")
+        val i = Intent(Intent.ACTION_VIEW, uri);
+        i.setPackage("com.twitter.android");
+        try {
+            startActivity(i)
+        } catch (e: ActivityNotFoundException) {
+            Log.e("LOGLOG", "Application not intalled.")
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://twitter.com/prodanmty")
+                )
+            )
+        }
+    }
+
+    private fun openYT() {
+        val uri = Uri.parse("https://www.youtube.com/user/PRODANMTY")
+        val i = Intent(Intent.ACTION_VIEW, uri);
+        i.setPackage("com.google.android.youtube");
+        try {
+            startActivity(i)
+        } catch (e: ActivityNotFoundException) {
+            Log.e("LOGLOG", "Application not intalled.")
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/user/PRODANMTY")
+                )
+            )
+        }
     }
 
     private fun openFacebook() {
@@ -85,25 +164,5 @@ class OptionsFragment : Fragment() {
                 )
             )
         }
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment OptionsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            OptionsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
